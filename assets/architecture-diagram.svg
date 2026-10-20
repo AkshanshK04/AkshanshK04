@@ -1,0 +1,269 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 370" width="100%" height="100%">
+  <defs>
+    <!-- Background & Gradients -->
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1411" />
+      <stop offset="50%" stop-color="#131C18" />
+      <stop offset="100%" stop-color="#0A0E0C" />
+    </linearGradient>
+
+    <linearGradient id="stageGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2821" />
+      <stop offset="100%" stop-color="#121B16" />
+    </linearGradient>
+
+    <linearGradient id="regBarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#557C73" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#C79A55" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#557C73" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Marker Arrowheads -->
+    <marker id="arrowTeal" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#557C73" />
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#C79A55" />
+    </marker>
+    <marker id="arrowWhite" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#E8E1D1" />
+    </marker>
+  </defs>
+
+  <style>
+    .arch-mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+    .stage-title { font-size: 11px; font-weight: 700; fill: #C79A55; letter-spacing: 1.5px; }
+    .stage-sub { font-size: 8px; fill: #8CA699; letter-spacing: 0.8px; }
+    .block-title { font-size: 9px; font-weight: 600; fill: #E8E1D1; letter-spacing: 0.5px; }
+    .signal-label { font-size: 7.5px; fill: #A69B85; }
+    .unit-box { fill: #15221B; stroke: #2A4034; stroke-width: 1; rx: 3; }
+    .bus-wire { stroke: #557C73; stroke-width: 1.3; fill: none; }
+    .fwd-wire { stroke: #C79A55; stroke-width: 1.2; fill: none; stroke-dasharray: 4,3; }
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="880" height="370" fill="url(#archBg)" />
+  <rect x="8" y="8" width="864" height="354" fill="none" stroke="#22352B" stroke-width="1" />
+  <rect x="12" y="12" width="856" height="346" fill="none" stroke="#1A2820" stroke-width="0.75" stroke-dasharray="4,6" />
+
+  <!-- Top Title Header -->
+  <g transform="translate(24, 30)">
+    <circle cx="6" cy="6" r="4" fill="#C79A55" />
+    <text x="18" y="10" class="arch-mono" font-size="12" font-weight="700" fill="#E8E1D1" letter-spacing="2">
+      AK-16B PIPELINED PROCESSOR &amp; IOT CO-DESIGN ARCHITECTURE
+    </text>
+    <text x="18" y="22" class="arch-mono" font-size="8.5" fill="#557C73" letter-spacing="1">
+      VERIFIED IMPLEMENTATION // 6-STAGE PIPELINE WITH FORWARDING, HAZARD STALL &amp; VECTORED IRQ
+    </text>
+    <line x1="0" y1="28" x2="832" y2="28" stroke="#22352B" stroke-width="1" />
+  </g>
+
+  <!-- ==================== 6 PIPELINE STAGES ==================== -->
+
+  <!-- STAGE 1: IF (Instruction Fetch) -->
+  <g transform="translate(24, 70)">
+    <!-- Stage Column Backdrop -->
+    <rect x="0" y="0" width="124" height="210" rx="4" fill="url(#stageGrad)" stroke="#1F3328" stroke-width="1" />
+    <text x="12" y="18" class="arch-mono stage-title">STAGE 1: IF</text>
+    <text x="12" y="28" class="arch-mono stage-sub">Instruction Fetch</text>
+
+    <!-- PC Register -->
+    <rect x="12" y="44" width="100" height="32" class="unit-box" />
+    <text x="62" y="64" class="arch-mono block-title" text-anchor="middle">PC Reg [15:0]</text>
+
+    <!-- Instruction Memory (IMEM) -->
+    <rect x="12" y="100" width="100" height="48" class="unit-box" stroke="#3D5A4C" />
+    <text x="62" y="122" class="arch-mono block-title" text-anchor="middle">IMEM</text>
+    <text x="62" y="136" class="arch-mono signal-label" text-anchor="middle">16-bit ROM/RAM</text>
+
+    <!-- PC + 1 Adder -->
+    <rect x="22" y="166" width="80" height="24" rx="2" fill="#111B15" stroke="#24382D" />
+    <text x="62" y="182" class="arch-mono signal-label" text-anchor="middle" fill="#C79A55">PC + 1 Adder</text>
+
+    <!-- Inter-unit bus in IF -->
+    <line x1="62" y1="76" x2="62" y2="100" class="bus-wire" marker-end="url(#arrowTeal)" />
+  </g>
+
+  <!-- PIPELINE REG 1: IF/ID -->
+  <g transform="translate(154, 70)">
+    <rect x="0" y="24" width="8" height="186" rx="2" fill="url(#regBarGrad)" />
+    <text x="-4" y="16" class="arch-mono" font-size="7.5" fill="#A69B85" font-weight="600">IF/ID</text>
+  </g>
+
+  <!-- STAGE 2: ID (Instruction Decode) -->
+  <g transform="translate(168, 70)">
+    <rect x="0" y="0" width="128" height="210" rx="4" fill="url(#stageGrad)" stroke="#1F3328" stroke-width="1" />
+    <text x="12" y="18" class="arch-mono stage-title">STAGE 2: ID</text>
+    <text x="12" y="28" class="arch-mono stage-sub">Decode &amp; RegFile</text>
+
+    <!-- Control Unit -->
+    <rect x="12" y="40" width="104" height="28" class="unit-box" stroke="#3D5A4C" />
+    <text x="64" y="57" class="arch-mono block-title" text-anchor="middle">Control Unit</text>
+
+    <!-- Register File (16 x 16-bit) -->
+    <rect x="12" y="78" width="104" height="66" class="unit-box" />
+    <text x="64" y="98" class="arch-mono block-title" text-anchor="middle">RegFile (16x16)</text>
+    <text x="64" y="112" class="arch-mono signal-label" text-anchor="middle">Dual Read Ports</text>
+    <text x="64" y="126" class="arch-mono signal-label" text-anchor="middle" fill="#C79A55">rs1[7:4] · rs2[3:0]</text>
+
+    <!-- Immediate Sign Extender -->
+    <rect x="12" y="156" width="104" height="30" class="unit-box" />
+    <text x="64" y="174" class="arch-mono signal-label" text-anchor="middle">Sign-Extender [3:0]->[15:0]</text>
+  </g>
+
+  <!-- PIPELINE REG 2: ID/EX1 -->
+  <g transform="translate(302, 70)">
+    <rect x="0" y="24" width="8" height="186" rx="2" fill="url(#regBarGrad)" />
+    <text x="-6" y="16" class="arch-mono" font-size="7.5" fill="#A69B85" font-weight="600">ID/EX1</text>
+  </g>
+
+  <!-- STAGE 3: EX1 (Execute Stage 1) -->
+  <g transform="translate(316, 70)">
+    <rect x="0" y="0" width="128" height="210" rx="4" fill="url(#stageGrad)" stroke="#1F3328" stroke-width="1" />
+    <text x="12" y="18" class="arch-mono stage-title">STAGE 3: EX1</text>
+    <text x="12" y="28" class="arch-mono stage-sub">ALU &amp; Forwarding Mux</text>
+
+    <!-- Forwarding Muxes (A & B) -->
+    <rect x="12" y="44" width="46" height="46" class="unit-box" stroke="#C79A55" />
+    <text x="35" y="65" class="arch-mono signal-label" text-anchor="middle" fill="#C79A55">MUX A</text>
+    <text x="35" y="77" class="arch-mono signal-label" font-size="6.5" text-anchor="middle">fwd_a</text>
+
+    <rect x="70" y="44" width="46" height="46" class="unit-box" stroke="#C79A55" />
+    <text x="93" y="65" class="arch-mono signal-label" text-anchor="middle" fill="#C79A55">MUX B</text>
+    <text x="93" y="77" class="arch-mono signal-label" font-size="6.5" text-anchor="middle">fwd_b</text>
+
+    <!-- 16-bit ALU -->
+    <path d="M 16 112 L 112 112 L 96 172 L 32 172 Z" fill="#172820" stroke="#557C73" stroke-width="1.2" />
+    <text x="64" y="138" class="arch-mono block-title" text-anchor="middle">16-bit ALU</text>
+    <text x="64" y="152" class="arch-mono signal-label" text-anchor="middle">ADD/SUB/LOGIC/SLT</text>
+  </g>
+
+  <!-- PIPELINE REG 3: EX1/EX2 -->
+  <g transform="translate(450, 70)">
+    <rect x="0" y="24" width="8" height="186" rx="2" fill="url(#regBarGrad)" />
+    <text x="-8" y="16" class="arch-mono" font-size="7.5" fill="#C79A55" font-weight="700">EX1/EX2</text>
+  </g>
+
+  <!-- STAGE 4: EX2 (Execute Stage 2 / Branch Resolution) -->
+  <g transform="translate(464, 70)">
+    <rect x="0" y="0" width="124" height="210" rx="4" fill="url(#stageGrad)" stroke="#1F3328" stroke-width="1" />
+    <text x="12" y="18" class="arch-mono stage-title">STAGE 4: EX2</text>
+    <text x="12" y="28" class="arch-mono stage-sub">Branch &amp; Result Pass</text>
+
+    <!-- Branch Comparator -->
+    <rect x="12" y="44" width="100" height="48" class="unit-box" stroke="#3D5A4C" />
+    <text x="62" y="66" class="arch-mono block-title" text-anchor="middle">Branch Unit</text>
+    <text x="62" y="79" class="arch-mono signal-label" text-anchor="middle" fill="#C79A55">BEQ · BNE Target</text>
+
+    <!-- EX2 ALU Result Latch -->
+    <rect x="12" y="112" width="100" height="42" class="unit-box" />
+    <text x="62" y="132" class="arch-mono block-title" text-anchor="middle">EX2 Latch</text>
+    <text x="62" y="145" class="arch-mono signal-label" text-anchor="middle">ex2_alu_result</text>
+
+    <text x="62" y="186" class="arch-mono signal-label" font-size="7" fill="#8CA699" text-anchor="middle">Branch Taken -> Flush</text>
+  </g>
+
+  <!-- PIPELINE REG 4: EX2/MEM -->
+  <g transform="translate(594, 70)">
+    <rect x="0" y="24" width="8" height="186" rx="2" fill="url(#regBarGrad)" />
+    <text x="-8" y="16" class="arch-mono" font-size="7.5" fill="#A69B85" font-weight="600">EX2/MEM</text>
+  </g>
+
+  <!-- STAGE 5: MEM (Memory Access & MMIO) -->
+  <g transform="translate(608, 70)">
+    <rect x="0" y="0" width="128" height="210" rx="4" fill="url(#stageGrad)" stroke="#1F3328" stroke-width="1" />
+    <text x="12" y="18" class="arch-mono stage-title">STAGE 5: MEM</text>
+    <text x="12" y="28" class="arch-mono stage-sub">Data Memory &amp; MMIO</text>
+
+    <!-- Data Memory (DMEM) -->
+    <rect x="12" y="40" width="104" height="52" class="unit-box" stroke="#3D5A4C" />
+    <text x="64" y="62" class="arch-mono block-title" text-anchor="middle">DMEM (SRAM)</text>
+    <text x="64" y="76" class="arch-mono signal-label" text-anchor="middle">mem_read / write</text>
+
+    <!-- MMIO Sensor & Alert Port -->
+    <rect x="12" y="104" width="104" height="52" class="unit-box" stroke="#C79A55" />
+    <text x="64" y="124" class="arch-mono block-title" text-anchor="middle" fill="#C79A55">MMIO Peripherals</text>
+    <text x="64" y="138" class="arch-mono signal-label" text-anchor="middle">0xF0-0xF2: Buzzer/WiFi</text>
+    <text x="64" y="148" class="arch-mono signal-label" font-size="7" text-anchor="middle" fill="#8CA699">ESP32 Sensor Link</text>
+  </g>
+
+  <!-- PIPELINE REG 5: MEM/WB -->
+  <g transform="translate(742, 70)">
+    <rect x="0" y="24" width="8" height="186" rx="2" fill="url(#regBarGrad)" />
+    <text x="-6" y="16" class="arch-mono" font-size="7.5" fill="#A69B85" font-weight="600">MEM/WB</text>
+  </g>
+
+  <!-- STAGE 6: WB (Write Back) -->
+  <g transform="translate(756, 70)">
+    <rect x="0" y="0" width="100" height="210" rx="4" fill="url(#stageGrad)" stroke="#1F3328" stroke-width="1" />
+    <text x="12" y="18" class="arch-mono stage-title">STAGE 6: WB</text>
+    <text x="12" y="28" class="arch-mono stage-sub">Write Back</text>
+
+    <!-- WB Multiplexer -->
+    <rect x="12" y="70" width="76" height="44" class="unit-box" />
+    <text x="50" y="92" class="arch-mono block-title" text-anchor="middle">WB Mux</text>
+    <text x="50" y="104" class="arch-mono signal-label" font-size="7" text-anchor="middle">ALU vs Mem</text>
+
+    <!-- Write Back Bus Line indicator -->
+    <path d="M 50 114 L 50 178 L 10 178" class="bus-wire" marker-end="url(#arrowTeal)" />
+    <text x="50" y="196" class="arch-mono signal-label" text-anchor="middle" fill="#557C73">-> RegFile WB</text>
+  </g>
+
+  <!-- ==================== CONTROL & HAZARD FEEDBACK LAYER ==================== -->
+
+  <!-- Forwarding Unit Box -->
+  <g transform="translate(340, 290)">
+    <rect x="0" y="0" width="190" height="34" rx="3" fill="#1C180E" stroke="#C79A55" stroke-width="1" />
+    <text x="95" y="16" class="arch-mono" font-size="9" font-weight="700" fill="#C79A55" text-anchor="middle">
+      FORWARDING UNIT
+    </text>
+    <text x="95" y="27" class="arch-mono signal-label" text-anchor="middle">
+      Resolves RAW Data Hazards (fwd_a, fwd_b)
+    </text>
+  </g>
+
+  <!-- Forwarding Wires (From EX2 and MEM into EX1 Muxes) -->
+  <!-- Wire from EX2 back to Forwarding Unit -->
+  <path d="M 526 154 L 526 276 L 440 276 L 440 290" class="fwd-wire" />
+  <!-- Wire from MEM back to Forwarding Unit -->
+  <path d="M 672 92 L 672 268 L 470 268 L 470 290" class="fwd-wire" />
+  <!-- Wire from Forwarding Unit to EX1 Muxes -->
+  <path d="M 370 290 L 370 100 L 350 100" class="fwd-wire" marker-end="url(#arrowAmber)" />
+
+  <!-- Hazard Detection Unit Box -->
+  <g transform="translate(140, 290)">
+    <rect x="0" y="0" width="180" height="34" rx="3" fill="#141E1A" stroke="#557C73" stroke-width="1" />
+    <text x="90" y="16" class="arch-mono" font-size="9" font-weight="700" fill="#E8E1D1" text-anchor="middle">
+      HAZARD DETECTION UNIT
+    </text>
+    <text x="90" y="27" class="arch-mono signal-label" text-anchor="middle">
+      Load-Use Detection -> PC Hold &amp; IF/ID Stall
+    </text>
+  </g>
+
+  <!-- Interrupt Controller (Connected to MEM / ESP32 Sensor) -->
+  <g transform="translate(560, 290)">
+    <rect x="0" y="0" width="280" height="34" rx="3" fill="#161F1A" stroke="#3D5A4C" stroke-width="1" />
+    <text x="140" y="16" class="arch-mono" font-size="9" font-weight="700" fill="#E8E1D1" text-anchor="middle">
+      VECTORED INTERRUPT CONTROLLER
+    </text>
+    <text x="140" y="27" class="arch-mono signal-label" text-anchor="middle">
+      ESP32 Telemetry (Vector: 0x00F0) // Hardware ACK Handshake
+    </text>
+  </g>
+
+  <!-- Bottom Legend / Verified Status -->
+  <g transform="translate(24, 350)">
+    <circle cx="4" cy="-4" r="3" fill="#C79A55" />
+    <text x="12" y="0" class="arch-mono" font-size="8" fill="#A69B85">
+      Gold dashed lines = Dynamic Forwarding Paths (EX2 / MEM -> EX1)
+    </text>
+    <circle cx="340" cy="-4" r="3" fill="#557C73" />
+    <text x="348" y="0" class="arch-mono" font-size="8" fill="#A69B85">
+      Solid lines = 16-bit Synchronous Datapath Wires
+    </text>
+    <text x="832" y="0" class="arch-mono" font-size="8" fill="#557C73" text-anchor="end">
+      AK-16B / SECURE_IOT RTL SPEC
+    </text>
+  </g>
+</svg>

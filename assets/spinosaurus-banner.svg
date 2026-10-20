@@ -1,0 +1,291 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E1311" />
+      <stop offset="45%" stop-color="#141C18" />
+      <stop offset="100%" stop-color="#0B0F0E" />
+    </linearGradient>
+
+    <radialGradient id="amberGlow" cx="72%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#C79A55" stop-opacity="0.16" />
+      <stop offset="60%" stop-color="#557C73" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#0E1311" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="sailGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#1E3228" stop-opacity="0.9" />
+      <stop offset="70%" stop-color="#557C73" stop-opacity="0.85" />
+      <stop offset="100%" stop-color="#C79A55" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="strataGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#557C73" stop-opacity="0.0" />
+      <stop offset="20%" stop-color="#557C73" stop-opacity="0.35" />
+      <stop offset="65%" stop-color="#C79A55" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#557C73" stop-opacity="0.0" />
+    </linearGradient>
+
+    <linearGradient id="accentLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C79A55" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#557C73" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#A69B85" stop-opacity="0.2" />
+    </linearGradient>
+
+    <!-- Blueprint Grid Pattern -->
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#22332A" stroke-width="0.5" stroke-opacity="0.5" />
+      <circle cx="30" cy="0" r="0.8" fill="#557C73" fill-opacity="0.4" />
+    </pattern>
+  </defs>
+
+  <style>
+    .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
+    .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .title { font-weight: 800; letter-spacing: 4px; fill: #E8E1D1; }
+    .subtitle { font-weight: 500; letter-spacing: 2.5px; fill: #C79A55; font-size: 11px; }
+    .spec-label { font-size: 9.5px; fill: #A69B85; letter-spacing: 1px; }
+    .spec-val { font-size: 9.5px; fill: #E8E1D1; font-weight: 600; letter-spacing: 1px; }
+    .callout { font-size: 8.5px; fill: #8CA699; letter-spacing: 0.8px; }
+    .grid-bg { fill: url(#grid); }
+  </style>
+
+  <!-- Base Canvas Background -->
+  <rect width="900" height="320" fill="url(#bgGrad)" />
+  <rect width="900" height="320" fill="url(#amberGlow)" />
+  <rect width="900" height="320" class="grid-bg" />
+
+  <!-- Outer Technical Border Frame -->
+  <rect x="14" y="14" width="872" height="292" fill="none" stroke="#2A3D34" stroke-width="1" stroke-opacity="0.8" />
+  <rect x="18" y="18" width="864" height="284" fill="none" stroke="#1F2E27" stroke-width="0.75" stroke-dasharray="4,8" />
+
+  <!-- Corner Precision Reticles -->
+  <g stroke="#C79A55" stroke-width="1.5" fill="none">
+    <path d="M 14 30 L 14 14 L 30 14" />
+    <path d="M 886 30 L 886 14 L 870 14" />
+    <path d="M 14 290 L 14 306 L 30 306" />
+    <path d="M 886 290 L 886 306 L 870 306" />
+  </g>
+
+  <!-- Geological Sediment Layers / Sub-aquatic Contours -->
+  <path d="M 20 258 Q 240 250, 450 262 T 880 254" fill="none" stroke="url(#strataGrad)" stroke-width="1.5" />
+  <path d="M 20 274 Q 280 282, 520 270 T 880 278" fill="none" stroke="#263D32" stroke-width="1" stroke-opacity="0.6" stroke-dasharray="8,6" />
+  <path d="M 20 288 Q 320 280, 600 292 T 880 284" fill="none" stroke="#1E2E26" stroke-width="1" stroke-opacity="0.5" />
+
+  <!-- Digital Circuit Trace / Datapath Bus running across lower pane -->
+  <g stroke="#557C73" stroke-width="1" fill="none" opacity="0.85">
+    <path d="M 38 238 L 190 238 L 210 258 L 410 258" />
+    <circle cx="190" cy="238" r="2.5" fill="#C79A55" stroke="none" />
+    <circle cx="210" cy="258" r="2" fill="#557C73" stroke="none" />
+    <circle cx="410" cy="258" r="3" fill="#C79A55" stroke="#101513" stroke-width="1" />
+  </g>
+
+  <!-- Left Header & Expedition Lab Metadata -->
+  <g transform="translate(38, 48)">
+    <!-- Field Station Tag -->
+    <rect x="0" y="0" width="186" height="20" rx="3" fill="#18251F" stroke="#324B3E" stroke-width="1" />
+    <circle cx="10" cy="10" r="3.5" fill="#C79A55" />
+    <text x="22" y="13.5" class="mono" font-size="9" fill="#A69B85" letter-spacing="1.5">SYS: FIELD_LAB // AK-04</text>
+
+    <!-- Main Title -->
+    <text x="0" y="52" class="sans title" font-size="28">SPINOSAURUS</text>
+    
+    <!-- Accent Line -->
+    <line x1="0" y1="62" x2="310" y2="62" stroke="url(#accentLineGrad)" stroke-width="2" />
+
+    <!-- Subtitle -->
+    <text x="0" y="80" class="mono subtitle">ANCIENT EVOLUTION · MODERN SYSTEMS</text>
+
+    <!-- Specimen Details Card -->
+    <g transform="translate(0, 98)">
+      <rect x="0" y="0" width="310" height="78" rx="4" fill="#131C18" fill-opacity="0.85" stroke="#263D32" stroke-width="1" />
+      
+      <text x="12" y="20" class="mono spec-label">TAXON:</text>
+      <text x="76" y="20" class="mono spec-val">Spinosaurus aegyptiacus</text>
+
+      <text x="12" y="38" class="mono spec-label">CHRONO:</text>
+      <text x="76" y="38" class="mono spec-val">Cretaceous (Cenomanian ~95 Ma)</text>
+
+      <text x="12" y="56" class="mono spec-label">STRATA:</text>
+      <text x="76" y="56" class="mono spec-val">Kem Kem Delta System, Morocco</text>
+
+      <line x1="12" y1="64" x2="298" y2="64" stroke="#1E2C25" stroke-width="0.75" />
+      <text x="12" y="72" class="mono" font-size="8" fill="#557C73" letter-spacing="1">ARCH DISCIPLINE: PIPELINED RISC // LOW-LEVEL SYSTEMS</text>
+    </g>
+
+    <!-- Pipeline Datapath Tracker Strip -->
+    <g transform="translate(0, 188)">
+      <g font-size="8.5" class="mono" text-anchor="middle">
+        <!-- Stage 1 -->
+        <rect x="0" y="0" width="46" height="18" rx="2" fill="#17241E" stroke="#557C73" stroke-width="0.75" />
+        <text x="23" y="12" fill="#E8E1D1">IF</text>
+        <line x1="46" y1="9" x2="52" y2="9" stroke="#C79A55" stroke-width="1" />
+        
+        <!-- Stage 2 -->
+        <rect x="52" y="0" width="46" height="18" rx="2" fill="#17241E" stroke="#557C73" stroke-width="0.75" />
+        <text x="75" y="12" fill="#E8E1D1">ID</text>
+        <line x1="98" y1="9" x2="104" y2="9" stroke="#C79A55" stroke-width="1" />
+
+        <!-- Stage 3 -->
+        <rect x="104" y="0" width="48" height="18" rx="2" fill="#1F3229" stroke="#C79A55" stroke-width="1" />
+        <text x="128" y="12" fill="#C79A55" font-weight="700">EX1</text>
+        <line x1="152" y1="9" x2="158" y2="9" stroke="#C79A55" stroke-width="1" />
+
+        <!-- Stage 4 -->
+        <rect x="158" y="0" width="48" height="18" rx="2" fill="#1F3229" stroke="#C79A55" stroke-width="1" />
+        <text x="182" y="12" fill="#C79A55" font-weight="700">EX2</text>
+        <line x1="206" y1="9" x2="212" y2="9" stroke="#C79A55" stroke-width="1" />
+
+        <!-- Stage 5 -->
+        <rect x="212" y="0" width="46" height="18" rx="2" fill="#17241E" stroke="#557C73" stroke-width="0.75" />
+        <text x="235" y="12" fill="#E8E1D1">MEM</text>
+        <line x1="258" y1="9" x2="264" y2="9" stroke="#C79A55" stroke-width="1" />
+
+        <!-- Stage 6 -->
+        <rect x="264" y="0" width="46" height="18" rx="2" fill="#17241E" stroke="#557C73" stroke-width="0.75" />
+        <text x="287" y="12" fill="#E8E1D1">WB</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- RIGHT PANE: SCIENTIFICALLY INFORMED SPINOSAURUS SILHOUETTE & ANATOMICAL OVERLAYS -->
+  <!--
+      Spinosaurus silhouette incorporates:
+      1. Elongated crocodilian snout with subnarial notch and conical dentition hints
+      2. Nasal crest between the orbits
+      3. Characteristic tall M-shaped dorsal neural spine sail peaking over mid-dorsum and sacrum
+      4. Adapted, low-slung torso with osteosclerotic ribs
+      5. Reduced, muscular hindlimbs suited for paddling / weight dispersal
+      6. Expanded, paddle-like caudal fin (neural and haemal spines) confirmed by Ibrahim et al. (2020)
+  -->
+  <g id="spinosaurus-specimen" transform="translate(370, 25)">
+    <!-- Scientific Measurement Reticle Grid behind specimen -->
+    <g stroke="#1F3329" stroke-width="0.5" stroke-dasharray="2,4" opacity="0.7">
+      <line x1="0" y1="50" x2="500" y2="50" />
+      <line x1="0" y1="100" x2="500" y2="100" />
+      <line x1="0" y1="150" x2="500" y2="150" />
+      <line x1="0" y1="200" x2="500" y2="200" />
+      <line x1="120" y1="20" x2="120" y2="250" />
+      <line x1="240" y1="20" x2="240" y2="250" />
+      <line x1="360" y1="20" x2="360" y2="250" />
+    </g>
+
+    <!-- Fossil Sail Glow Effect -->
+    <path d="M 125 140
+             C 130 95, 142 50, 168 25
+             C 185 8, 205 18, 222 35
+             C 240 52, 255 70, 275 80
+             C 292 90, 310 105, 325 125
+             L 325 148 L 125 148 Z"
+          fill="url(#sailGrad)" opacity="0.32" />
+
+    <!-- Spinosaurus Main Anatomical Silhouette -->
+    <!-- Head at (480, 120), Neck down to (370, 140), Sail across (150-320), Tail back to (10, 190) -->
+    <path d="
+      M 488 122
+      C 475 120, 460 116, 440 114
+      C 428 112, 420 108, 412 104
+      C 406 100, 396 103, 392 108
+      C 385 116, 375 122, 355 128
+      C 340 132, 332 125, 320 112
+      C 305 92, 288 78, 272 70
+      C 255 60, 240 46, 224 30
+      C 208 14, 188 5, 172 18
+      C 152 35, 140 70, 132 108
+      C 128 125, 122 135, 110 142
+      C 95 150, 80 156, 68 158
+      C 52 162, 38 165, 20 170
+      C 12 173, 5 178, 0 185
+      C 10 198, 22 205, 36 208
+      C 52 210, 68 206, 82 198
+      C 96 190, 108 184, 120 182
+      C 125 195, 132 215, 138 230
+      C 140 236, 144 240, 150 240
+      C 156 240, 160 234, 158 226
+      C 155 215, 152 200, 152 188
+      C 168 186, 185 186, 205 188
+      C 215 198, 222 216, 226 232
+      C 228 238, 234 242, 240 242
+      C 246 242, 249 236, 247 228
+      C 242 215, 238 198, 234 186
+      C 260 184, 290 182, 318 178
+      C 335 176, 350 178, 362 184
+      C 368 188, 374 196, 376 204
+      C 378 208, 384 210, 388 208
+      C 392 205, 392 198, 388 192
+      C 382 182, 378 172, 376 166
+      C 392 162, 410 156, 428 148
+      C 445 142, 462 135, 478 132
+      C 485 130, 492 128, 494 125
+      C 494 123, 492 122, 488 122
+      Z
+    " fill="#182721" stroke="#557C73" stroke-width="1.4" />
+
+    <!-- Neural Spine Struts inside Sail (Structural Biomechanics) -->
+    <g stroke="#C79A55" stroke-width="0.8" opacity="0.65" stroke-dasharray="1,3">
+      <line x1="140" y1="120" x2="148" y2="72" />
+      <line x1="158" y1="122" x2="168" y2="35" />
+      <line x1="178" y1="124" x2="188" y2="22" />
+      <line x1="198" y1="126" x2="208" y2="28" />
+      <line x1="218" y1="128" x2="226" y2="40" />
+      <line x1="238" y1="130" x2="246" y2="58" />
+      <line x1="258" y1="132" x2="265" y2="74" />
+      <line x1="278" y1="134" x2="284" y2="92" />
+      <line x1="298" y1="136" x2="302" y2="110" />
+    </g>
+
+    <!-- Caudal Fin (Tail) Paddle Flukes (Ibrahim et al. 2020 adaptation) -->
+    <!-- Upper and lower fin margin traces -->
+    <path d="M 8 182 C 22 165, 45 158, 70 156" fill="none" stroke="#557C73" stroke-width="1.2" stroke-dasharray="2,2" opacity="0.85" />
+    <path d="M 5 186 C 20 206, 45 212, 75 204" fill="none" stroke="#557C73" stroke-width="1.2" stroke-dasharray="2,2" opacity="0.85" />
+    <!-- Fin Ray Spines -->
+    <g stroke="#557C73" stroke-width="0.6" opacity="0.5">
+      <line x1="20" y1="172" x2="15" y2="198" />
+      <line x1="32" y1="168" x2="28" y2="204" />
+      <line x1="45" y1="164" x2="42" y2="207" />
+      <line x1="58" y1="161" x2="56" y2="205" />
+    </g>
+
+    <!-- Technical Callout 1: Cranial Rostrum / Sensory Pits -->
+    <g transform="translate(450, 80)">
+      <circle cx="28" cy="40" r="3" fill="#C79A55" stroke="#101513" stroke-width="1" />
+      <polyline points="28,40 40,24 100,24" fill="none" stroke="#C79A55" stroke-width="0.8" />
+      <text x="44" y="16" class="mono callout" fill="#C79A55" font-weight="700">ROSTRUM TELEMETRY</text>
+      <text x="44" y="27" class="mono callout" font-size="7.5" fill="#A69B85">Neurovascular Pits // Pressure Sensing</text>
+    </g>
+
+    <!-- Technical Callout 2: Dorsal Neural Sail (Thermoregulation / Display) -->
+    <g transform="translate(160, 2)">
+      <circle cx="36" cy="22" r="3" fill="#557C73" stroke="#101513" stroke-width="1" />
+      <polyline points="36,22 55,8 140,8" fill="none" stroke="#557C73" stroke-width="0.8" />
+      <text x="58" y="4" class="mono callout" fill="#8CA699" font-weight="700">M-SHAPED NEURAL SAIL</text>
+      <text x="58" y="14" class="mono callout" font-size="7.5" fill="#A69B85">Elongated Spines ~1.8m // Cretaceous Biomechanics</text>
+    </g>
+
+    <!-- Technical Callout 3: Paddle Tail (Propulsion) -->
+    <g transform="translate(20, 215)">
+      <circle cx="30" cy="-25" r="3" fill="#C79A55" stroke="#101513" stroke-width="1" />
+      <polyline points="30,-25 10,-8 70,-8" fill="none" stroke="#C79A55" stroke-width="0.8" />
+      <text x="12" y="3" class="mono callout" fill="#C79A55" font-weight="700">CAUDAL PROPULSION</text>
+      <text x="12" y="12" class="mono callout" font-size="7.5" fill="#A69B85">Deep Fin Rays // Aquatic Locomotion</text>
+    </g>
+
+    <!-- Center Coordinate Target -->
+    <g transform="translate(260, 150)" stroke="#C79A55" stroke-width="0.75" opacity="0.6">
+      <circle cx="0" cy="0" r="10" fill="none" stroke-dasharray="2,3" />
+      <line x1="-14" y1="0" x2="14" y2="0" />
+      <line x1="0" y1="-14" x2="0" y2="14" />
+      <text x="14" y="12" class="mono" font-size="7" fill="#C79A55" stroke="none">COV: 95.4%</text>
+    </g>
+  </g>
+
+  <!-- Bottom Technical Telemetry Bar -->
+  <g transform="translate(38, 296)">
+    <text x="0" y="0" class="mono" font-size="8.5" fill="#557C73" letter-spacing="1.2">
+      STATUS: ACTIVE LAB // CORE: VERILOG-16B // SYS: RUST &amp; C // VERIFIED EVIDENCE
+    </text>
+    <text x="824" y="0" class="mono" font-size="8.5" fill="#A69B85" text-anchor="end" letter-spacing="1">
+      LAT: 31°12'N · LON: 4°01'W · KEM KEM
+    </text>
+  </g>
+</svg>

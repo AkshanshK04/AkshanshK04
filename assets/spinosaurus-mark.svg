@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <defs>
+    <radialGradient id="markGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E3228" stop-opacity="0.9" />
+      <stop offset="65%" stop-color="#141F1A" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0E1311" stop-opacity="1" />
+    </radialGradient>
+
+    <linearGradient id="markSailGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#557C73" />
+      <stop offset="100%" stop-color="#C79A55" />
+    </linearGradient>
+  </defs>
+
+  <style>
+    .mark-mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+  </style>
+
+  <!-- Outer Ring with Tick Marks -->
+  <circle cx="80" cy="80" r="76" fill="url(#markGlow)" stroke="#263D32" stroke-width="1.5" />
+  <circle cx="80" cy="80" r="71" fill="none" stroke="#557C73" stroke-width="0.75" stroke-dasharray="3,3" opacity="0.7" />
+
+  <!-- Quadrant Coordinate Crosshairs -->
+  <line x1="80" y1="4" x2="80" y2="15" stroke="#C79A55" stroke-width="1.5" />
+  <line x1="80" y1="145" x2="80" y2="156" stroke="#C79A55" stroke-width="1.5" />
+  <line x1="4" y1="80" x2="15" y2="80" stroke="#C79A55" stroke-width="1.5" />
+  <line x1="145" y1="80" x2="156" y2="80" stroke="#C79A55" stroke-width="1.5" />
+
+  <!-- Diagonal Sub-ticks -->
+  <line x1="26" y1="26" x2="33" y2="33" stroke="#557C73" stroke-width="1" opacity="0.6" />
+  <line x1="134" y1="26" x2="127" y2="33" stroke="#557C73" stroke-width="1" opacity="0.6" />
+  <line x1="26" y1="134" x2="33" y2="127" stroke="#557C73" stroke-width="1" opacity="0.6" />
+  <line x1="134" y1="134" x2="127" y2="127" stroke="#557C73" stroke-width="1" opacity="0.6" />
+
+  <!-- Stylized Spinosaurus Cranium & Sail Arc -->
+  <!-- Sail Arc behind head -->
+  <path d="M 40 88 C 42 60, 52 35, 68 28 C 80 23, 94 32, 102 46 C 108 58, 114 74, 118 88" 
+        fill="none" stroke="url(#markSailGrad)" stroke-width="2.5" stroke-linecap="round" />
+  
+  <!-- Sail Spine Ribs -->
+  <g stroke="#C79A55" stroke-width="0.75" opacity="0.7" stroke-dasharray="1,2">
+    <line x1="50" y1="84" x2="54" y2="52" />
+    <line x1="62" y1="82" x2="68" y2="30" />
+    <line x1="74" y1="80" x2="82" y2="28" />
+    <line x1="86" y1="80" x2="94" y2="36" />
+    <line x1="98" y1="82" x2="104" y2="52" />
+  </g>
+
+  <!-- Spinosaurus Cranial Head & Snout Profile -->
+  <path d="
+    M 132 86
+    C 120 84, 108 81, 98 78
+    C 92 76, 86 72, 82 70
+    C 78 68, 73 70, 71 73
+    C 68 77, 63 80, 56 82
+    C 52 83, 48 85, 45 88
+    C 48 93, 54 96, 62 96
+    C 68 96, 74 94, 78 91
+    C 84 93, 92 94, 98 94
+    C 108 94, 118 92, 126 90
+    C 131 89, 134 88, 134 87
+    Z
+  " fill="#182721" stroke="#E8E1D1" stroke-width="1.2" stroke-linejoin="round" />
+
+  <!-- Eye Orbit / Sclerotic Ring -->
+  <circle cx="82" cy="74" r="2.2" fill="#C79A55" />
+  <circle cx="82" cy="74" r="4" fill="none" stroke="#557C73" stroke-width="0.75" />
+
+  <!-- Neurovascular Snout Pits (Pressure receptors) -->
+  <circle cx="118" cy="85" r="0.9" fill="#C79A55" />
+  <circle cx="123" cy="86" r="0.9" fill="#C79A55" />
+  <circle cx="127" cy="87" r="0.9" fill="#C79A55" />
+
+  <!-- Sub-arc Labeling -->
+  <g class="mark-mono" font-size="7" fill="#A69B85" text-anchor="middle" letter-spacing="1.2">
+    <text x="80" y="118">SPINOSAURUS</text>
+    <text x="80" y="128" fill="#557C73" font-size="6">SYS LAB // 16B</text>
+  </g>
+</svg>
