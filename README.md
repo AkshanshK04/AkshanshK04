@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🦖 XENIX FOREVER
+#  XENIX FOREVER
 
 <p align="center">
   <img src="assets/spinosaurus-xenix.jpg" alt="Spinosaurus: I'm a big fan of Xenix" width="680" style="border-radius: 12px;" />
