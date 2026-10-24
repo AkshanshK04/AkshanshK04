@@ -1,16 +1,16 @@
 <div align="center">
 
-#  XENIX FOREVER
+# Xenix Forever
 
 <p align="center">
   <img src="assets/spinosaurus-xenix.jpg" alt="Spinosaurus: I'm a big fan of Xenix" width="680" style="border-radius: 12px;" />
 </p>
 
-### **Low-Level Systems · Computer Architecture · Digital Logic · Rust & C**
+### Low-level systems, computer architecture, digital logic, Rust, and C
 
 ```text
-"Building processors from gate-level logic upward and breaking systems software.
- Big fan of vintage Unix, pipelined architectures, and Spinosaurus aegyptiacus."
+"Building processors from gate-level logic upward and writing systems software.
+ Big fan of Xenix, vintage Unix, pipelined architectures, and Spinosaurus aegyptiacus."
 ```
 
 <p align="center">
@@ -24,95 +24,95 @@
 
 ---
 
-## ⚡ What I Do
+## What I do
 
-I deconstruct computing systems from physical hardware up to the software runtime:
+I design digital logic in Verilog, write systems software in C and Rust, and develop embedded firmware:
 
-* 🔬 **Computer Architecture & Digital Logic:** Designing 16-bit pipelined CPU datapaths, forwarding multiplexers, and hazard units in **Verilog**.
-* ⚙️ **Systems Programming:** Writing memory-conscious software in **C** (cache simulators, data structures) and **Rust** (interpreters, parsers, AST evaluation).
-* 🛰️ **Embedded Hardware:** Interfacing **ESP32** microcontrollers with real-time I2C telemetry (ADC, 6-DOF IMUs) and hardware interrupt lines under **FreeRTOS**.
-* 🦖 **Paleontology:** Deep curiosity about *Spinosaurus aegyptiacus*—the apex semi-aquatic Cretaceous predator with neurovascular pressure-sensor snout pits and a 1.8m neural spine sail.
+* **Computer architecture.** I design 16-bit pipelined CPU datapaths, forwarding multiplexers, and hazard detection units in Verilog.
+* **Systems software.** I write cache simulators and data structures in C, along with tree-walking interpreters and parsers in Rust.
+* **Embedded hardware.** I interface ESP32 microcontrollers with real-time sensors over I2C and handle hardware interrupts in FreeRTOS.
+* **Paleontology.** I study Spinosaurus aegyptiacus, focusing on its neurovascular cranial structures and semi-aquatic biomechanics.
 
 ---
 
-## 🔥 Featured Builds
+## Featured builds
 
-### ⚡ [AK-16B: 16-Bit Pipelined CPU](https://github.com/AkshanshK04/Ak-16b-A-16-bit-CPU-)
-> **Verilog · Icarus Verilog · GTKWave**
-* **6-Stage Pipeline:** `IF` ➔ `ID` ➔ `EX1` ➔ `EX2` ➔ `MEM` ➔ `WB`.
-* **Zero-Bubble RAW Forwarding:** Dynamic forwarding unit routes results from `EX2` and `MEM` stages directly into `EX1` ALU operands.
-* **Hardware Hazard Detection:** Automatically detects load-use conflicts, stalls the PC, and injects pipeline bubbles.
-* **Custom ISA:** Full instruction decoder handling R-type arithmetic, sign-extended I-types, branches (`BEQ`/`BNE`), and jumps.
+### [AK-16B: 16-bit pipelined CPU](https://github.com/AkshanshK04/Ak-16b-A-16-bit-CPU-)
+> Verilog, Icarus Verilog, GTKWave
+* **Pipeline architecture.** Six pipeline stages handle instruction fetch, instruction decode, execute 1, execute 2, memory access, and writeback.
+* **Data forwarding.** The forwarding unit routes results from the execute 2 and memory stages directly into execute 1 operands, eliminating read-after-write stalls.
+* **Hazard detection.** The hazard unit detects load-use conflicts, halts the program counter, and inserts bubbles until data resolves.
+* **Instruction decoder.** The decoder translates R-type arithmetic instructions, sign-extended I-type operations, conditional branches, and jump targets.
 
 <details>
-<summary><b>📐 View Processor Architecture Schematic</b></summary>
+<summary><b>View processor architecture schematic</b></summary>
 <br />
 <div align="center">
-  <img src="assets/architecture-diagram.svg" alt="AK-16B Architecture" width="100%" />
+  <img src="assets/architecture-diagram.svg" alt="AK-16B architecture" width="100%" />
 </div>
 </details>
 
 ---
 
-### 🧠 [Cache Simulator](https://github.com/AkshanshK04/Cache-Simulator)
-> **C (C99) · Memory Systems**
-* Configurable cache simulator supporting **Direct-Mapped** and **N-Way Set-Associative** configurations.
-* Bitwise address decomposition into Tag, Index, and Block Offset using logarithmic shifts.
-* Implements **True LRU replacement** and **Write-Back with dirty bit tracking**; demonstrated **85–95% hit rates**.
+### [Cache simulator](https://github.com/AkshanshK04/Cache-Simulator)
+> C99, memory systems
+* **Cache topology.** Simulates direct-mapped and N-way set-associative cache configurations.
+* **Address mapping.** Splits memory addresses into tag, index, and block offset fields using bitwise shifts.
+* **Eviction and writes.** Implements least-recently-used replacement and write-back caching with dirty-bit tracking, reaching 85% to 95% simulated hit rates.
 
 ---
 
-### 🦀 [Rizz: Language Runtime & Interpreter](https://github.com/AkshanshK04/rizz)
-> **Rust · AST Parser · REPL**
-* Complete tree-walking programming language interpreter written in **Rust** (>45k chars).
-* Lexer, recursive-descent parser, Abstract Syntax Tree, and environment scoping via `Rc<RefCell<Env>>`.
-* Features mutable (`lit`) vs immutable (`rizz`) variable bindings, loops, recursion, and verified algorithms (bubble sort, Fibonacci).
+### [Rizz: Language runtime and interpreter](https://github.com/AkshanshK04/rizz)
+> Rust, AST parser, REPL
+* **Tree-walking interpreter.** Interprets programs through an Abstract Syntax Tree walker written in Rust across 45,000 characters of code.
+* **Grammar analysis.** Tokenizes input and constructs syntax trees using a hand-written recursive descent parser.
+* **Scope resolution.** Resolves variable bindings across nested environments using reference-counted pointers with interior mutability.
+* **Language runtime.** Evaluates mutable and immutable variables, conditional branches, loops, and recursive functions.
 
 ---
 
-### 🛰️ [Secure IoT Edge Co-Design](https://github.com/AkshanshK04/Secure_iot_cpu_system)
-> **Verilog · C · ESP32 · FreeRTOS**
-* Pipelined CPU core with memory-mapped alert registers (`0xF0–0xF2`) and a **vectored interrupt controller** (vector `0x00F0`).
-* Real-time C firmware for ESP32 polling an ADS1115 16-bit ADC and MPU6050 IMU over I2C, streaming normalized telemetry packets to the CPU.
+### [Secure IoT edge co-design](https://github.com/AkshanshK04/Secure_iot_cpu_system)
+> Verilog, C, ESP32, FreeRTOS
+* **Processor interface.** Pairs memory-mapped alert registers from address 0xF0 to 0xF2 with a vectored interrupt line at vector 0x00F0.
+* **Sensor pipeline.** ESP32 firmware samples an ADS1115 analog-to-digital converter and an MPU6050 motion sensor over I2C, streaming telemetry frames to the CPU.
 
 ---
 
-### 🗡️ [DSA from Scratch](https://github.com/AkshanshK04/DSAfromScratch)
-> **C · 260+ Solutions**
-* Core data structures, pointer arithmetic, sliding window, and dynamic programming in raw C without standard library containers.
+### [DSA from scratch](https://github.com/AkshanshK04/DSAfromScratch)
+> C, 260 solutions
+* **Data structures.** Implements linked lists, trees, hash tables, and dynamic arrays in standard C without standard library containers.
+* **Algorithms.** Implements pointer arithmetic routines, sliding window techniques, and dynamic programming solutions across 260 standalone files.
 
 ---
 
-## 🦖 The Mascot: Spinosaurus aegyptiacus
+## Mascot: Spinosaurus aegyptiacus
 
 ```text
-┌────────────────────────────────────────────────────────────────────────┐
-│ Cretaceous Delta Predator · 95 Ma · Kem Kem Beds, Morocco              │
-│ • Neurovascular snout foramina -> biological hydrophone array          │
-│ • Dense pachyosteosclerotic bones -> diving ballast mechanics          │
-│ • Massive M-shaped dorsal sail -> thermoregulation & hydrodynamic helm │
-│ • Deep caudal fin -> paddle-driven aquatic propulsion                  │
-└────────────────────────────────────────────────────────────────────────┘
+Kem Kem Beds, Morocco · 95 million years ago
+* Neurovascular snout foramina housed pressure sensors that detected aquatic prey.
+* Dense bones provided ballast for diving and underwater hunting.
+* The 1.8-meter dorsal sail assisted thermoregulation and stability.
+* The paddle-like caudal fin generated aquatic propulsion.
 ```
 
 ---
 
-## 📊 Activity & Terminal
+## Activity and terminal
 
 <div align="center">
 
 <a href="https://github.com/AkshanshK04">
-  <img src="https://github-readme-stats.vercel.app/api?username=AkshanshK04&show_icons=true&theme=tokyonight&hide_border=true&bg_color=101412&title_color=c79a55&icon_color=557c73&text_color=e8e1d1" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AkshanshK04&layout=compact&theme=tokyonight&hide_border=true&bg_color=101412&title_color=c79a55&text_color=e8e1d1" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=AkshanshK04&show_icons=true&theme=tokyonight&hide_border=true&bg_color=101412&title_color=c79a55&icon_color=557c73&text_color=e8e1d1" alt="GitHub stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=AkshanshK04&layout=compact&theme=tokyonight&hide_border=true&bg_color=101412&title_color=c79a55&text_color=e8e1d1" alt="Top languages" />
 </a>
 
 <br /><br />
 
 ```text
 >>> CONNECT: akshanshk0406@gmail.com | github.com/AkshanshK04
->>> STATUS : Hacking on custom silicon & low-level runtimes.
+>>> STATUS : Hacking on custom silicon and low-level runtimes.
 ```
 
-<sub>Built with 🦖 by <b>Xenix Forever</b></sub>
+<sub>Maintained by <b>Xenix Forever</b></sub>
 
 </div>
