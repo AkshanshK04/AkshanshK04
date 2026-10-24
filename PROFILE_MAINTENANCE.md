@@ -43,7 +43,7 @@ git push -u origin main
 ```text
 .
 ├── assets/
-│   ├── spinosaurus-xenix.jpg      # Main hero image with Spinosaurus and Xenix dialogue
+│   ├── spinosaurus-hero.jpg       # Main hero image with Spinosaurus and Xenix dialogue
 │   ├── spinosaurus-banner.svg     # 900x320 hero banner with blueprint grid and anatomical callouts
 │   ├── spinosaurus-mark.svg       # 160x160 species reticle emblem
 │   ├── section-divider.svg        # 900x32 geological stratum and clock divider
